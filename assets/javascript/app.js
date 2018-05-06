@@ -1,5 +1,8 @@
+$(document).ready(function() {
+
 //60 SECOND TIMER
 var sec=60;
+var win = 0;
 
 function countDown() {
     setInterval(function(){
@@ -17,16 +20,69 @@ $(".btn").on("click",run);
 
 function run() {
     countDown();
-    game();
+    check();
+    //game();
     //$(".startbutton").hide();
 }
 
-function game() {
+function check() {
+    var q1answer = $("input[type=radio][name=q1]:checked").val();
+    console.log(q1answer);
+    if (q1answer == 4) {
+        win++;
+    }
+    var q2answer = $("input[type=radio][name=q2]:checked").val();
+    console.log(q2answer);
+    if (q2answer == -1) {
+        win++;
+    }
+    var q3answer = $("input[type=radio][name=q3]:checked").val();
+    console.log(q3answer);
+    if (q3answer == 5) {
+        win++;
+    }
+    alert("your score is " + win);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function game() {
     for (i=0;i<myQuestions.length;i++) {
         $(".questionsform").append("<div class='question'></div>");
-        $(".question").text(myQuestions[i]);
+        $(".question").text(myQuestions[0]);
     }
-}
+}*/
 
 
 var myQuestions = [
@@ -37,7 +93,7 @@ var myQuestions = [
 			b: '5',
 			c: '115'
 		},
-		correctAnswer: 'b'
+        correctAnswer: 'b'
 	},
 	{
 		question: "What is 30/3?",
@@ -59,6 +115,8 @@ var myQuestions = [
 	}
 ];
 
+    
+})
 
 
 
