@@ -3,20 +3,19 @@ $(document).ready(function() {
 $(".questionsform").hide();
 $(".resultbox").hide();
 
-//60 SECOND TIMER
+//90 SECOND TIMER
 var win = 0;
 var timer;
-sec=5;
+sec=90;
 
 function countDown() {
     if (sec > 0) {
     sec--;
-    $(".timer").html("00:"+sec);
+    $(".timer").html("Time remaining: 00:"+sec);
     } else {
         stop();
     }
 }
-
 
 function stop () {
 clearInterval(timer);
@@ -39,25 +38,50 @@ function run() {
 //CHECK ANSWERS
 function check() {
     var q1answer = $("input[type=radio][name=q1]:checked").val();
-    console.log(q1answer);
-    if (q1answer == 4) {
+    if (q1answer == "correct") {
         win++;
     }
     var q2answer = $("input[type=radio][name=q2]:checked").val();
-    console.log(q2answer);
-    if (q2answer == -1) {
+    if (q2answer == "correct") {
         win++;
     }
     var q3answer = $("input[type=radio][name=q3]:checked").val();
-    console.log(q3answer);
-    if (q3answer == 5) {
+    if (q3answer == "correct") {
+        win++;
+    }
+    var q4answer = $("input[type=radio][name=q4]:checked").val();
+    if (q4answer == "correct") {
+        win++;
+    }
+    var q5answer = $("input[type=radio][name=q5]:checked").val();
+    if (q5answer == "correct") {
+        win++;
+    }
+    var q6answer = $("input[type=radio][name=q6]:checked").val();
+    if (q6answer == "correct") {
+        win++;
+    }
+    var q7answer = $("input[type=radio][name=q7]:checked").val();
+    if (q7answer == "correct") {
+        win++;
+    }
+    var q8answer = $("input[type=radio][name=q8]:checked").val();
+    if (q8answer == "correct") {
+        win++;
+    }
+    var q9answer = $("input[type=radio][name=q9]:checked").val();
+    if (q9answer == "correct") {
+        win++;
+    }
+    var q10answer = $("input[type=radio][name=q10]:checked").val();
+    if (q10answer == "correct") {
         win++;
     }
     displayResult();
 }
 
 function displayResult(){
-    $(".result").text("You got " + win + " out of 3 questions right!");
+    $(".result").text("You got " + win + " out of 10 questions right!");
     $(".resultbox").show();
     $(".questionsform").hide();
 }

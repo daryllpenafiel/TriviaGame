@@ -1,22 +1,31 @@
 body {
     text-align: center;
     color: white;
+    background-image: url("../images/pink dust.png");
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
 }
 
 .startbox {
-    background-color: teal;
+    background-color: lightcoral;
     height: 300px;
     width: 70%;
     margin: 10% auto;
     line-height: 200%;
-    
+    border-radius: 5px;
+    font-size: 1.2rem;
 }
 
+.timer {
+    color:firebrick;
+}
 .questionsform {
-    background-color: teal;
+    background-color: lightcoral;
     margin: 5% auto;
     height: auto;
     width: 70%;
+    font-family: 'Tajawal', sans-serif;
+    border-radius: 5px;
 }
 
 .form-group {
@@ -26,10 +35,12 @@ body {
     padding: 20px;
     width: 80%;
     margin: auto;
+    border: sienna solid 1px;
+    border-radius: 5px;
 }
 
 .resultbox {
-    background-color: teal;
+    background-color: lightcoral;
     height: 300px;
     width: 70%;
     margin: 10% auto;
@@ -38,13 +49,17 @@ body {
 
 .resultbox p{
     padding-top: 120px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .startbutton {
-    padding-top: 120px;
+    padding-top: 60px;
 }
 
 .btn {
-    background-color: darkslategray;
+    background-color: palevioletred;
+}
+
+.btn:hover {
+    background-color: orchid;
 }
