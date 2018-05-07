@@ -1,3 +1,50 @@
 body {
     text-align: center;
+    color: white;
+}
+
+.startbox {
+    background-color: teal;
+    height: 300px;
+    width: 70%;
+    margin: 10% auto;
+    line-height: 200%;
+    
+}
+
+.questionsform {
+    background-color: teal;
+    margin: 5% auto;
+    height: auto;
+    width: 70%;
+}
+
+.form-group {
+    background-color: whitesmoke;
+    color: black;
+    height: auto;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+.resultbox {
+    background-color: teal;
+    height: 300px;
+    width: 70%;
+    margin: 10% auto;
+    line-height: 200%;  
+}
+
+.resultbox p{
+    padding-top: 120px;
+    font-size: 20px;
+}
+
+.startbutton {
+    padding-top: 120px;
+}
+
+.btn {
+    background-color: darkslategray;
 }

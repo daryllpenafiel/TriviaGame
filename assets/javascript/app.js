@@ -1,30 +1,42 @@
 $(document).ready(function() {
 
+$(".questionsform").hide();
+$(".resultbox").hide();
+
 //60 SECOND TIMER
-var sec=60;
 var win = 0;
+var timer;
+sec=5;
 
 function countDown() {
-    setInterval(function(){
-        if(sec>0){
-            sec--;
-            $(".timer").html("00:"+sec);
+    if (sec > 0) {
+    sec--;
+    $(".timer").html("00:"+sec);
     } else {
-        clearInterval();
-        alert("Time has run out!")
-    }},1000);
+        stop();
+    }
 }
+
+
+function stop () {
+clearInterval(timer);
+check();
+displayResult();
+};
 
 //CLICK THE START BUTTON TO BEGIN TIMER
-$(".btn").on("click",run);
+$(".startbutton").on("click",run);
 
 function run() {
-    countDown();
-    check();
-    //game();
-    //$(".startbutton").hide();
-}
+    clearInterval(timer);
+    var timer = setInterval(countDown,1000);
+    win=0;
+    $(".questionsform").show();
+    $(".resultbox").hide();
+    $(".startbox").hide();
+    }
 
+//CHECK ANSWERS
 function check() {
     var q1answer = $("input[type=radio][name=q1]:checked").val();
     console.log(q1answer);
@@ -41,14 +53,16 @@ function check() {
     if (q3answer == 5) {
         win++;
     }
-    alert("your score is " + win);
+    displayResult();
 }
 
+function displayResult(){
+    $(".result").text("You got " + win + " out of 3 questions right!");
+    $(".resultbox").show();
+    $(".questionsform").hide();
+}
 
-
-
-
-
+$(".submitbutton").on("click",check);
 
 
 
