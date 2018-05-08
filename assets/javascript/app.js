@@ -81,6 +81,13 @@ function check() {
 }
 
 function displayResult(){
+    if (win >= 8) {
+        $(".level").text("Romantic Level: Soldier of Love");
+    } else if (win >= 4 && win <=7) {
+        $(".level").text("Romantic Level: Casual Romantic");
+    } else if (win < 3) {
+        $(".level").text("Romantic Level: Comedy");
+    };
     $(".result").text("You got " + win + " out of 10 questions right!");
     $(".resultbox").show();
     $(".questionsform").hide();
