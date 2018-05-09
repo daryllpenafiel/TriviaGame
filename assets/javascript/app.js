@@ -1,42 +1,44 @@
 $(document).ready(function() {
-
 $(".questionsform").hide();
 $(".resultbox").hide();
 
 //90 SECOND TIMER
 var win = 0;
 var timer;
-sec=90;
+var sec=10;
 
 function countDown() {
+    console.log(sec);
     if (sec > 0) {
-    sec--;
-    $(".timer").html("Time remaining: 00:"+sec);
+        sec--;
+        $(".timer").html("Time remaining: 00:"+sec);
     } else {
+        console.log("stop");
         stop();
     }
 }
-
-function stop () {
-clearInterval(timer);
-check();
-displayResult();
-};
 
 //CLICK THE START BUTTON TO BEGIN TIMER
 $(".startbutton").on("click",run);
 
 function run() {
     clearInterval(timer);
-    var timer = setInterval(countDown,1000);
+    timer = setInterval(countDown,1000);
     win=0;
     $(".questionsform").show();
     $(".resultbox").hide();
     $(".startbox").hide();
     }
 
+function stop () {
+        clearInterval(timer);
+        check();
+        displayResult();
+    };
+
 //CHECK ANSWERS
 function check() {
+    win=0;
     var q1answer = $("input[type=radio][name=q1]:checked").val();
     if (q1answer == "correct") {
         win++;
@@ -77,25 +79,39 @@ function check() {
     if (q10answer == "correct") {
         win++;
     }
-    displayResult();
 }
 
 function displayResult(){
-    if (win >= 8) {
+    if (win > 7) {
         $(".level").text("Romantic Level: Soldier of Love");
-    } else if (win >= 4 && win <=7) {
+    } else if (win >3 && win <8) {
         $(".level").text("Romantic Level: Casual Romantic");
-    } else if (win < 3) {
-        $(".level").text("Romantic Level: Comedy");
+    } else {
+        $(".level").text("Romantic Level: Probably Single");
     };
     $(".result").text("You got " + win + " out of 10 questions right!");
     $(".resultbox").show();
     $(".questionsform").hide();
 }
 
-$(".submitbutton").on("click",check);
 
+function clearSelection(){
+    $(".radio-inline").attr('checked',false);
+}
 
+function reset() {
+    clearSelection;
+    clearInterval(timer);
+    $(".timer").html("Time remaining: 00:90");
+    sec = 10;
+    timer = setInterval(countDown,1000);
+    $(".questionsform").show();
+    $(".resultbox").hide();
+    $(".startbox").hide();
+    }
+
+$(".submitbutton").on("click",stop);
+$(".resetbutton").on("click",reset);
 
 
 
